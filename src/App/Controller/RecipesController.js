@@ -17,7 +17,7 @@ class RecipesController {
   }
   // [GET] recipes/category/:id
   getRecipeByCategoryId(req, res, next) {
-    Recipes.findOne({ categoryId: req.params.id }).then((recipe) => {
+    Recipes.find({ categoryId: req.params.id }).then((recipe) => {
       console.log(recipe);
       res.status(200).json({ recipe });
     });
