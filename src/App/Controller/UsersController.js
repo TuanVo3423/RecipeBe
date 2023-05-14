@@ -9,6 +9,13 @@ class UsersController {
       })
       .catch(next);
   }
+  // [GET] http:localhost:5000/users/:id
+  getUsers(req, res, next) {
+    User.find({ _id: req.params.id }).then((user) => {
+      res.status(200).json(user);
+    });
+  }
+
   // [PUT] http:localhost:5000/users/:id
   updateUser(req, res, next) {
     User.updateOne({ _id: req.body.id }, req.body)

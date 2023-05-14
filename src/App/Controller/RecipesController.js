@@ -36,5 +36,34 @@ class RecipesController {
       res.status(200).json({ recipesArray });
     });
   }
+  // [PUT] /recipes/:id
+  updateRecipe(req, res, next) {
+    // console.log('req.body : ',req.body);
+    Recipes.updateOne({ _id: req.body.id }, req.body)
+      .then(() => {
+        res.status(200).json(req.body);
+      })
+      .catch(next);
+  }
+  // [DELETE] /recipes/:id
+  deleteRecipe(req, res, next) {
+    Recipes.deleteOne({ _id: req.params.id })
+      .then((product) => {
+        res.status(200).json(req.params.id);
+      })
+      .catch(next);
+  }
+  // [POST] recipes/createRecipe
+  createRecipe(req, res, next) {
+    console.log("req.body: ", req.body);
+    const newRecipe = new Recipes(req.body);
+    // console.log("newPost : ", req.body.createdAt);
+    newRecipe
+      .save()
+      .then((recipe) => {
+        res.status(200).json(recipe);
+      })
+      .catch(next);
+  }
 }
 module.exports = new RecipesController();

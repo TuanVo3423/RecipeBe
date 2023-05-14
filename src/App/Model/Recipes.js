@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const recipes = new Schema(
   {
-    recipeId: { type: Number, required: true },
-    categoryId: { type: Number, required: true },
+    recipeId: { type: Number },
+    categoryId: { type: Number },
     title: { type: String, required: true },
     photo_url: { type: String, required: true },
     photosArray: { type: Array, required: true },

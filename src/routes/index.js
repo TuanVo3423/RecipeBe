@@ -5,6 +5,7 @@ const userRoute = require("./users");
 const categoriesRoute = require("./categories");
 const ingredientsRoute = require("./ingredients");
 const recipesRoute = require("./recipes");
+const favoritesRoute = require("./favorite");
 
 function Routes(app) {
   app.use("/auth", authRoute);
@@ -13,6 +14,7 @@ function Routes(app) {
   app.use("/categories", categoriesRoute);
   app.use("/ingredients", ingredientsRoute);
   app.use("/recipes", recipesRoute);
+  app.use("/favorites", favoritesRoute);
   app.use("/", siteRoute);
 }
 

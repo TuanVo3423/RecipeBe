@@ -111,6 +111,7 @@ class AuthController {
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7d
       });
       res.status(200).json({
+        data: user,
         accesstoken: accesstoken,
         message: "Login successfully",
         type: "success",
